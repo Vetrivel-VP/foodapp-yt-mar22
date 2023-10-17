@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
 
 import { app } from "../firebase.config";
 
@@ -11,7 +10,7 @@ import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-
+import MenuContainer from "./MenuContainer";
 
 const Header = () => {
   const firebaseAuth = getAuth(app);
@@ -36,7 +35,6 @@ const Header = () => {
     }
   };
 
-  
   const logout = () => {
     setIsMenu(false);
     localStorage.clear();
@@ -46,6 +44,15 @@ const Header = () => {
       user: null,
     });
   };
+  
+    const myComponentRef = useRef(null);
+  
+    const scrollToMyComponent = () => {
+      myComponentRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+  
+  
 
   const showCart = () => {
     dispatch({
@@ -74,8 +81,26 @@ const Header = () => {
               Home
             </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Menu
+            {/* <Link to="/Menu">
+      <button>Click me!</button>
+    </Link> */}
+    
+      <button onClick={scrollToMyComponent}>Scroll to My Component</button>
+      <div ref={MenuContainer}>
+        This is my component.
+      </div>
+    
+
+  
+    
+      
+  
+
+
             </li>
+
+          
+
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               About Us
             </li>
@@ -101,7 +126,7 @@ const Header = () => {
           <div className="relative">
             <motion.img
               whileTap={{ scale: 0.6 }}
-              src={user?user.photoURL:Avatar}
+              src={user ? user.photoURL : Avatar}
               className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
               alt="userprofile"
               onClick={login}
@@ -160,7 +185,7 @@ const Header = () => {
         <div className="relative">
           <motion.img
             whileTap={{ scale: 0.6 }}
-            src={user?user.photoURL:Avatar}
+            src={user ? user.photoURL : Avatar}
             className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer rounded-full"
             alt="userprofile"
             onClick={login}
@@ -172,7 +197,7 @@ const Header = () => {
               exit={{ opacity: 0, scale: 0.6 }}
               className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
             >
-              {user && user.email === "vetrivel.galaxy@gmail.com" && (
+              {user && user.email === "dipakrajbhar12803@gmail.com" && (
                 <Link to={"/createItem"}>
                   <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
                     New Item <MdAdd />
@@ -191,14 +216,14 @@ const Header = () => {
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
-                  Menu
+                  kuch
                 </li>
-                <li
+                {/* <li
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
                 >
                   About Us
-                </li>
+                </li> */}
                 <li
                   className="text-base text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer hover:bg-slate-100 px-4 py-2"
                   onClick={() => setIsMenu(false)}
