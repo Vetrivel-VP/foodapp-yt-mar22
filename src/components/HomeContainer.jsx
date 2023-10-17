@@ -23,7 +23,7 @@ const HomeContainer = () => {
 
         <p className="text-[2.5rem] lg:text-[4.5rem] font-bold tracking-wide text-headingColor">
           ONDC Food and Grocery Delivery
-          <span className="text-orange-600 text-[3rem] lg:text-[5rem]">
+          <span className="text-blue-600 text-[3rem] lg:text-[5rem]">
             Budget Friendly
           </span>
         </p>
