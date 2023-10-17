@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState } from "react";
 import { MdShoppingBasket, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -10,7 +10,6 @@ import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-import MenuContainer from "./MenuContainer";
 
 const Header = () => {
   const firebaseAuth = getAuth(app);
@@ -44,15 +43,12 @@ const Header = () => {
       user: null,
     });
   };
-  
-    const myComponentRef = useRef(null);
-  
-    const scrollToMyComponent = () => {
-      myComponentRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
 
-  
-  
+  // const myComponentRef = useRef(null);
+
+  // const scrollToMyComponent = () => {
+  //   myComponentRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   const showCart = () => {
     dispatch({
@@ -78,29 +74,14 @@ const Header = () => {
             className="flex items-center gap-24 "
           >
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Home
+             <a href="#home"> Home </a>
+
             </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-            {/* <Link to="/Menu">
-      <button>Click me!</button>
-    </Link> */}
-    
-      <button onClick={scrollToMyComponent}>Scroll to My Component</button>
-      <div ref={MenuContainer}>
-        This is my component.
-      </div>
-    
-
-  
-    
-      
-  
-
-
-            </li>
-
-          
-
+              
+              <a href="#menu">
+              Menu </a>
+             </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               About Us
             </li>
