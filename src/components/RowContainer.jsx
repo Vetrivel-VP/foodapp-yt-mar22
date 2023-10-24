@@ -6,6 +6,7 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
+  console.log(data)
   const rowContainer = useRef();
 
   const [items, setItems] = useState([]);
@@ -72,7 +73,8 @@ const RowContainer = ({ flag, data, scrollValue }) => {
               </p>
               <div className="flex items-center gap-8">
                 <p className="text-lg text-headingColor font-semibold">
-                  <span className="text-sm text-red-500">$</span> {item?.price}
+                  {/* <span className="text-sm text-red-500">$</span> {item?.price} */}
+                  <span className="text-sm text-red-500">₹</span> {item?.price}
                 </p>
               </div>
             </div>
