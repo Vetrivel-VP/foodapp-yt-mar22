@@ -6,7 +6,7 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
 const RowContainer = ({ flag, data, scrollValue }) => {
-  console.log(data)
+  console.log(data);
   const rowContainer = useRef();
 
   const [items, setItems] = useState([]);

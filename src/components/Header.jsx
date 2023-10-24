@@ -5,7 +5,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import { app } from "../firebase.config";
 
-import Logo from "../img/logos.jpg";
+import Logo from "../img/logos.png";
 import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
@@ -74,14 +74,11 @@ const Header = () => {
             className="flex items-center gap-24 "
           >
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-             <a href="#home"> Home </a>
-
+              <a href="#home"> Home </a>
             </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              
-              <a href="#menu">
-              Menu </a>
-             </li>
+              <a href="#menu">Menu </a>
+            </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
               About Us
             </li>
